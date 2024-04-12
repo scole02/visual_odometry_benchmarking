@@ -1,0 +1,12 @@
+<launch>
+    <!-- <arg name="bagfile" default="path_to_default_bagfile.bag"/> -->
+
+    <arg name="config-file" default="$(find visual_odometry_benchmarking)/config/default_config.yaml"/>
+    <!-- <rosparam file="$(arg config-file)" command="load"> -->
+
+    <!-- Load configuration parameters from a YAML file into the 'rosbag_play' namespace -->
+    <rosparam file="$(find visual_odometry_benchmarking)/config/test_config.yaml" command="load" />
+
+    <!-- Launch the wrapper script -->
+    <node name="rosbag_play_wrapper" pkg="visual_odometry_benchmarking" type="rosbag_play_wrapper.py" output="screen"/>
+</launch>
