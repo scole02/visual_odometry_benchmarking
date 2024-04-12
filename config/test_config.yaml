@@ -1,0 +1,29 @@
+rosbag_play:
+  bags: ["/root/catkin_ws/src/hound_27.bag"]
+  quiet: false
+  immediate: false
+  pause: false
+  loop: false
+  keep-alive: false
+  try-future-version: false
+  wait-for-subscribers: false
+  queue: 15
+  # hz: 100.0
+  delay: 0.2
+  rate: 5
+  start: 0.0
+  # duration: 10.0
+  # skip-empty: 5.0
+  rate-control-max-delay: 0.5
+  topics: [
+           "/camera/depth/image_rect_raw", 
+           "/camera/color/image_raw",
+           "/mavros/imu/data",
+           "/mavros/local_position/odom",
+           ]
+  # pause-topics: ["/pause-topic1"]
+  # rate-control-topic: "/rate-control"
+
+experiment_listener:
+  output_topic: "/mavros/local_position/odom"
+  gt_topic: "/mavros/local_position/odom"
